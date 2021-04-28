@@ -48,7 +48,7 @@ fi
 
 if [ "$SESAME" != "" ]
 then
-	TOMCAT_VERSION=tomcat6
+	TOMCAT_VERSION=tomcat7
 	sudo java -version
 
 	sudo apt-get install $TOMCAT_VERSION
