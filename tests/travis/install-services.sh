@@ -96,7 +96,7 @@ then
 		exit $E_UNREACHABLE
 	fi
 
-	./eclipse-rdf4j-$SESAME/bin/console.sh < $BASE_PATH/tests/travis/openrdf-sesame-memory-repository.txt
+	cat $BASE_PATH/tests/travis/openrdf-sesame-memory-repository.txt | ./eclipse-rdf4j-$SESAME/bin/console.sh -e
 fi
 
 # Version 1.1.4-1 is available but has a problem
