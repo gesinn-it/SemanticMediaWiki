@@ -48,7 +48,7 @@ fi
 
 if [ "$SESAME" != "" ]
 then
-	TOMCAT_VERSION=tomcat7
+	TOMCAT_VERSION=tomcat8
 	sudo java -version
 
 	sudo apt-get install $TOMCAT_VERSION
@@ -68,9 +68,9 @@ then
 	# cp *.war /var/lib/tomcat6/webapps/
 
 	# http://sourceforge.net/projects/sesame/
-	# Unreliable sourceforge.net download
-	# wget http://downloads.sourceforge.net/project/sesame/Sesame%202/$SESAME/openrdf-sesame-$SESAME-sdk.zip
-	wget https://github.com/mwjames/travis-support/raw/master/sesame/$SESAME/openrdf-sesame-$SESAME-sdk.zip
+	# In case of unreliable sourceforge.net download, use mirror
+	wget http://downloads.sourceforge.net/project/sesame/Sesame%202/$SESAME/openrdf-sesame-$SESAME-sdk.zip
+	#wget https://github.com/mwjames/travis-support/raw/master/sesame/$SESAME/openrdf-sesame-$SESAME-sdk.zip
 
 	# tar caused a lone zero block, using zip instead
 	unzip -q openrdf-sesame-$SESAME-sdk.zip
