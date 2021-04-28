@@ -5,4 +5,5 @@ test store for Semantic MediaWiki
 10000
 true
 120
+
 quit .
