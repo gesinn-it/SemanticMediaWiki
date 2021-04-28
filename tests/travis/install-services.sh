@@ -59,7 +59,7 @@ then
 	sudo chown $USER -R $CATALINA_BASE/
 	sudo chmod g+rw -R $CATALINA_BASE/
 
-	sudo mkdir -p $CATALINA_HOME/.RDF4J
+	sudo mkdir -p $CATALINA_BASE/.RDF4J
 	sudo chown -R $TOMCAT_VERSION:$TOMCAT_VERSION $CATALINA_BASE
 
 	# One method to get the war files
