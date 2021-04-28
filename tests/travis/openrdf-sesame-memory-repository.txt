@@ -1,4 +1,4 @@
-connect http://localhost:8080/openrdf-sesame .
+connect http://localhost:8080/rdf4j-server .
 create memory .
 test-smw
 test store for Semantic MediaWiki
