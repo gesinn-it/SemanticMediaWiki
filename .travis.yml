@@ -39,7 +39,7 @@ jobs:
     - env: DB=mysql; MW=REL1_32; PHPUNIT=6.5.*; VIRTUOSO=6.1
       php: 7.1
     # 8) SESAME
-    - env: DB=mysql; MW=REL1_32; PHPUNIT=6.5.*; SESAME=3.6.3
+    - env: DB=mysql; MW=REL1_32; PHPUNIT=6.5.*; SESAME=2.5.4
       php: 7.1
     # 9) ES
     - env: DB=mysql; MW=REL1_33; PHPUNIT=6.5.*; ES=5.6.6
