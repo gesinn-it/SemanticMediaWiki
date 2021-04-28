@@ -5,7 +5,7 @@ os:
   - linux
 
 # https://docs.travis-ci.com/user/trusty-ci-environment/
-dist: trusty
+dist: bionic
 
 addons:
   postgresql: "9.5"
