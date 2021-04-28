@@ -59,8 +59,8 @@ then
 	sudo chown $USER -R $CATALINA_BASE/
 	sudo chmod g+rw -R $CATALINA_BASE/
 
-	sudo mkdir -p $CATALINA_HOME/.aduna
-	sudo chown -R $TOMCAT_VERSION:$TOMCAT_VERSION $CATALINA_HOME
+	sudo mkdir -p $CATALINA_HOME/.RDF4J
+	sudo chown -R $TOMCAT_VERSION:$TOMCAT_VERSION $CATALINA_BASE
 
 	# One method to get the war files
 	# wget http://search.maven.org/remotecontent?filepath=org/openrdf/sesame/sesame-http-server/$SESAME/sesame-http-server-$SESAME.war -O openrdf-sesame.war
@@ -85,7 +85,7 @@ then
 
 	sleep 5
 
-	if curl --output /dev/null --silent --head --fail "http://localhost:8080/RDF4J-server"
+	if curl --output /dev/null --silent --head --fail "http://localhost:8080/rdf4j-server"
 	#if curl --output /dev/null --silent --head --fail "http://localhost:8080/openrdf-sesame/home/overview.view"
 	then
 		echo "RDF4J service url is reachable"
