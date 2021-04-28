@@ -59,9 +59,6 @@ then
 	sudo chown $USER -R $CATALINA_BASE/
 	sudo chmod g+rw -R $CATALINA_BASE/
 
-	sudo mkdir -p $CATALINA_BASE/.RDF4J
-	sudo chown -R $TOMCAT_VERSION:$TOMCAT_VERSION $CATALINA_BASE
-
 	# One method to get the war files
 	# wget http://search.maven.org/remotecontent?filepath=org/openrdf/sesame/sesame-http-server/$SESAME/sesame-http-server-$SESAME.war -O openrdf-sesame.war
 	# wget http://search.maven.org/remotecontent?filepath=org/openrdf/sesame/sesame-http-workbench/$SESAME/sesame-http-workbench-$SESAME.war -O openrdf-workbench.war
@@ -78,7 +75,10 @@ then
 
 	# tar caused a lone zero block, using zip instead
 	unzip -q eclipse-rdf4j-$SESAME-sdk.zip
-	cp eclipse-rdf4j-$SESAME/war/*.war $CATALINA_BASE/webapps/
+	sudo cp eclipse-rdf4j-$SESAME/war/*.war $CATALINA_BASE/webapps/
+
+	sudo mkdir -p $CATALINA_BASE/.RDF4J
+	sudo chown -R $TOMCAT_VERSION:$TOMCAT_VERSION $CATALINA_BASE
 
 	sudo service $TOMCAT_VERSION restart
 	ps -ef | grep tomcat
