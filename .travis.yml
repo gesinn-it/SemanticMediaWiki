@@ -79,11 +79,13 @@ before_install:
   - cat /etc/hosts # optionally check the content *before*
   # MW is not yet compatible with Composer 2.x, see https://phabricator.wikimedia.org/T266417
   - composer self-update --1
+  - wget https://raw.githubusercontent.com/SemanticMediaWiki/CIScripts/main/travis/install-mediawiki.sh
+  - wget https://raw.githubusercontent.com/SemanticMediaWiki/CIScripts/main/travis/install-phpunit.sh
 
 install:
-  - travis_retry composer self-update
+  - bash ./install-mediawiki.sh
+  - bash ./install-phpunit.sh
   - bash ./tests/travis/install-services.sh
-  - bash ./tests/travis/install-mediawiki.sh
   - bash ./tests/travis/install-semantic-mediawiki.sh
 
 before_script:
