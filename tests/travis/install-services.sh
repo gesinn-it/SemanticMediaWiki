@@ -67,26 +67,30 @@ then
 	# wget http://search.maven.org/remotecontent?filepath=org/openrdf/sesame/sesame-http-workbench/$SESAME/sesame-http-workbench-$SESAME.war -O openrdf-workbench.war
 	# cp *.war /var/lib/tomcat6/webapps/
 
+	## SESAME 2
 	# http://sourceforge.net/projects/sesame/
 	# In case of unreliable sourceforge.net download, use mirror
-	wget http://downloads.sourceforge.net/project/sesame/Sesame%202/$SESAME/openrdf-sesame-$SESAME-sdk.zip
+	# wget http://downloads.sourceforge.net/project/sesame/Sesame%202/$SESAME/openrdf-sesame-$SESAME-sdk.zip
 	#wget https://github.com/mwjames/travis-support/raw/master/sesame/$SESAME/openrdf-sesame-$SESAME-sdk.zip
 
+	## SESAME 3
+	wget "https://www.eclipse.org/downloads/download.php?file=/rdf4j/eclipse-rdf4j-$SESAME-sdk.zip&r=1" -O eclipse-rdf4j-$SESAME-sdk.zip
+
 	# tar caused a lone zero block, using zip instead
-	unzip -q openrdf-sesame-$SESAME-sdk.zip
-	cp openrdf-sesame-$SESAME/war/*.war $CATALINA_BASE/webapps/
+	unzip -q eclipse-rdf4j-$SESAME-sdk.zip
+	cp eclipse-rdf4j-$SESAME/war/*.war $CATALINA_BASE/webapps/
 
 	sudo service $TOMCAT_VERSION restart
 	ps -ef | grep tomcat
 
 	sleep 5
 
-	if curl --output /dev/null --silent --head --fail "http://localhost:8080/openrdf-sesame"
+	if curl --output /dev/null --silent --head --fail "http://localhost:8080/RDF4J-server"
 	#if curl --output /dev/null --silent --head --fail "http://localhost:8080/openrdf-sesame/home/overview.view"
 	then
-		echo "openrdf-sesame service url is reachable"
+		echo "RDF4J service url is reachable"
 	else
-		echo "openrdf-sesame service url is not reachable"
+		echo "RDF4J service url is not reachable"
 		sudo cat $CATALINA_BASE/logs/*.log &
 		sudo cat $CATALINA_BASE/logs/catalina.out &
 		exit $E_UNREACHABLE
